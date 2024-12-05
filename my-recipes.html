@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mis Recetas</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f9f9f9;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .recipe-card {
+            background: #fff;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            padding: 20px;
+            position: relative;
+        }
+        .recipe-card h2 {
+            margin-bottom: 10px;
+        }
+        .recipe-card p {
+            margin: 5px 0;
+        }
+        .recipe-card .delete-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .recipe-card .delete-btn:hover {
+            background-color: #e60000;
+        }
+        .no-recipes {
+            text-align: center;
+            font-size: 18px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <nav class="navigation-header">
+        <a href="formulario-recetas.html">Agregar Receta</a>						
+        <a href="index.html">Inicio</a>
+    </nav>
+
+</header>
+
+
+
+    <div class="container">
+        <h1>Mis Recetas</h1>
+        <div id="recipesContainer"></div>
+    </div>
+    <script>
+        const recipesContainer = document.getElementById("recipesContainer");
+ 
+        // Función para obtener recetas desde localStorage
+        function getRecipes() {
+            const storedRecipes = localStorage.getItem("recipes");
+            return storedRecipes ? JSON.parse(storedRecipes) : [];
+        }
+ 
+        // Función para eliminar una receta
+        function deleteRecipe(index) {
+            const recipes = getRecipes();
+            recipes.splice(index, 1); // Eliminar la receta seleccionada
+            localStorage.setItem("recipes", JSON.stringify(recipes)); // Actualizar en localStorage
+            renderRecipes();
+        }
+ 
+        // Función para renderizar recetas
+        function renderRecipes() {
+            const recipes = getRecipes();
+            recipesContainer.innerHTML = ""; // Limpiar el contenedor
+ 
+            if (recipes.length === 0) {
+                recipesContainer.innerHTML = "<p class='no-recipes'>No hay recetas disponibles. ¡Agrega una desde el formulario!</p>";
+                return;
+            }
+ 
+            recipes.forEach((recipe, index) => {
+                const recipeCard = document.createElement("div");
+                recipeCard.classList.add("recipe-card");
+ 
+                recipeCard.innerHTML = `
+                    <h2>${recipe.name}</h2>
+                    <p><strong>Ingredientes:</strong> ${recipe.ingredients}</p>
+                    <p><strong>Procedimiento:</strong> ${recipe.procedure}</p>
+                    <button class="delete-btn" onclick="deleteRecipe(${index})">Eliminar</button>
+                `;
+ 
+                recipesContainer.appendChild(recipeCard);
+            });
+        }
+ 
+        // Renderizar recetas al cargar la página
+        renderRecipes();
+    </script>
+</body>
+</html>
+ 
