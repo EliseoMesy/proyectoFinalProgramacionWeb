@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Receta</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <span class="logo"><a href="/">FoodieXYZ</a></span>
+    <nav class="navigation-header">
+    <a href="/">Inicio</a>
+      <a href="/">Recetas</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Agrega tu propia receta</h2>
+    <form id="recipeForm" class="recipe-form">
+      <label for="recipeName">Nombre de la receta:</label>
+      <input type="text" id="recipeName" name="recipeName" required>
+      
+      <label for="ingredients">Ingredientes:</label>
+      <textarea id="ingredients" name="ingredients" rows="5" placeholder="Lista de ingredientes" required></textarea>
+      
+      <label for="procedure">Procedimiento:</label>
+      <textarea id="procedure" name="procedure" rows="8" placeholder="Describe el procedimiento" required></textarea>
+      
+      <button type="submit" class="btn">Enviar Receta</button>
+    </form>
+  </main>
+
+  <footer class="container">
+    <p>&copy;2024 FoodieXYZ - Todos los derechos reservados</p>
+  </footer>
+
+  <script src="formulario-recetas.js"></script>
+</body>
+</html>
