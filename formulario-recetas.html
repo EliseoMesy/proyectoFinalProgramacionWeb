@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Receta</title>
+  <style>
+    /* Estilos generales */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      min-height: 100vh;
+    }
+
+    /* Estilos para el header */
+    header {
+      background-color: #333;
+      width: 100%;
+      padding: 10px 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      font-size: 24px;
+      color: white;
+      font-weight: bold;
+      text-align: center;
+    }
+    .navigation-header {
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      padding: 10px 0;
+    }
+    .navigation-header a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      transition: color 0.3s;
+    }
+    .navigation-header a:hover {
+      color: #4CAF50;
+    }
+
+    /* Estilos para el formulario */
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 16px;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+
+    /* Mensajes de éxito y error */
+    .message, .error {
+      text-align: center;
+      font-weight: bold;
+      display: none;
+    }
+    .message {
+      color: green;
+    }
+    .error {
+      color: red;
+    }
+
+    /* Estilos para hacer la página responsiva */
+    @media (max-width: 600px) {
+      header {
+        padding: 15px 0;
+      }
+      .logo {
+        font-size: 20px;
+      }
+      .navigation-header {
+        flex-direction: column;
+        gap: 10px;
+      }
+      .container {
+        padding: 15px;
+        margin-top: 10px;
+      }
+      h1 {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo"><a href="index.html" style="color: white; text-decoration: none;">Foodie-MAFIA</a></span>
+    <nav class="navigation-header">
+      <a href="index.html">Inicio</a>
+      <a href="Nosotros.html">Nosotros</a>
+      <a href="my-recipes.html">Recetas Guardadas</a>
+    </nav>
+  </header>
+  <div class="container">
+    <h1>Agregar Receta</h1>
+    <form id="recipeForm">
+      <label for="recipeName">Nombre de la receta:</label>
+      <input type="text" id="recipeName" name="recipeName" required>
+
+      <label for="ingredients">Ingredientes:</label>
+      <textarea id="ingredients" name="ingredients" required></textarea>
+
+      <label for="procedure">Procedimiento:</label>
+      <textarea id="procedure" name="procedure" required></textarea>
+
+      <label for="image">Imagen de la receta (opcional):</label>
+      <input type="file" id="image" name="image" accept="image/*">
+
+      <label for="category">Categoría:</label>
+      <select id="category" name="category" required>
+        <option value="Desayuno">Desayuno</option>
+        <option value="Vegano">Vegano</option>
+        <option value="Carne">Carne</option>
+        <option value="Postre">Postre</option>
+        <option value="Chocolate">Chocolate</option>
+      </select>
+
+      <label for="prepTime">Tiempo de preparación:</label>
+      <input type="text" id="prepTime" name="prepTime" required>
+
+      <label for="videoLink">Enlace de video en YouTube (opcional):</label>
+      <input type="url" id="videoLink" name="videoLink">
+
+      <button type="submit">Enviar Receta</button>
+    </form>
+
+    <div id="message" class="message"></div>
+    <div id="errorMessage" class="error"></div>
+  </div>
+
+  <script type="module">
+    // Importar Firebase
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+    import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
+
+    // Tu configuración de Firebase
+    const firebaseConfig = {
+      apiKey: "AIzaSyD7J1F-fu5qviyZqOZiZEiLLXHmOCfvYVI",
+      authDomain: "foodie-para-v4.firebaseapp.com",
+      databaseURL: "https://foodie-para-v4-default-rtdb.firebaseio.com",
+      projectId: "foodie-para-v4",
+      storageBucket: "foodie-para-v4.appspot.com",
+      messagingSenderId: "982157609989",
+      appId: "1:982157609989:web:06e43b4d281ce095b9206c",
+      measurementId: "G-4QHTCW28L1"
+    };
+
+    // Inicializar Firebase
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const form = document.getElementById('recipeForm');
+    const message = document.getElementById('message');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      // Ocultar mensajes previos
+      message.style.display = "none";
+      errorMessage.style.display = "none";
+
+      // Capturar los datos del formulario
+      const recipeName = document.getElementById('recipeName').value;
+      const ingredients = document.getElementById('ingredients').value;
+      const procedure = document.getElementById('procedure').value;
+      const category = document.getElementById('category').value;
+      const prepTime = document.getElementById('prepTime').value;
+      const videoLink = document.getElementById('videoLink').value;
+      const imageFile = document.getElementById('image').files[0];
+
+      let imageLink = null;
+      if (imageFile) {
+        try {
+          imageLink = await uploadImage(imageFile);
+        } catch (error) {
+          console.error("Error al subir la imagen:", error);
+          errorMessage.textContent = "No se pudo subir la imagen, pero la receta se guardará sin imagen.";
+          errorMessage.style.display = "block";
+        }
+      }
+
+      const recipeData = {
+        recipeName,
+        ingredients,
+        procedure,
+        category,
+        prepTime,
+        videoLink,
+        image: imageLink || null
+      };
+
+      try {
+        // Guardar receta en Firebase
+        const newRecipeRef = ref(db, `recipes/${Date.now()}`);
+        await set(newRecipeRef, recipeData);
+
+        // Mensaje de éxito
+        message.textContent = "Receta guardada con éxito.";
+        message.style.display = "block";
+        form.reset();
+      } catch (error) {
+        console.error("Error al guardar en la base de datos:", error);
+        errorMessage.textContent = "Hubo un error al guardar la receta. Inténtalo de nuevo.";
+        errorMessage.style.display = "block";
+      }
+    });
+
+    async function uploadImage(imageFile) {
+      const formData = new FormData();
+      formData.append('image', imageFile);
+
+      const response = await fetch('https://api.imgur.com/3/upload', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Client-ID 65d0b5f499aadb7', // Usa tu Client-ID aquí
+        },
+        body: formData,
+      });
+
+      const data = await response.json();
+      return data.data?.link || null;
+    }
+  </script>
+</body>
+</html>

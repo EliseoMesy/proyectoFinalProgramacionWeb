@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veganos - Categoría</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilo global */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #000; /* Fondo negro */
+            color: white; /* Texto blanco */
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+            width: 100%; /* Abarca todo el ancho */
+        }
+
+        /* Barra de navegación */
+        .navigation-header {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #444; /* Fondo gris oscuro */
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            overflow-x: auto; /* Permite el desplazamiento horizontal */
+            white-space: nowrap; /* Evita que los elementos se rompan a una nueva línea */
+        }
+
+        .navigation-header a {
+            text-decoration: none;
+            color: white;
+            margin: 0 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Estilo de los enlaces al pasar el cursor */
+        .navigation-header a:hover {
+            background-color: #555;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            background-color: #333;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            left: 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Vegano</h1>
+        <p>Descubre recetas deliciosas y fáciles de preparar para tus comida Vegana.</p>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav class="navigation-header">
+        <a href="index.html">Inicio</a>
+        <a href="my-recipes.html">Recetas Guardadas</a>
+        <a href="Nosotros.html">Nosotros</a>
+    </nav>
+
+    <!-- Sección de recetas -->
+    <main>
+        <h2>Recetas de Platillos veganos</h2>
+        <div class="list-card-recipes">
+            <!-- Receta 1 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-4.webp" alt="Imagen Ensalada" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Ensalada mixta saludable y fresca con mayonesa.html">
+                        <h3>Ensalada mixta saludable y fresca con mayonesa</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            15 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Vegano
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receta 2 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-9.webp" alt="Imagen Ensalada" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Ensalada tropical de frutas con super alimentos.html">
+                        <h3>Ensalada tropical de frutas con super alimentos</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            15 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Vegano
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receta 3 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-11.webp" alt="Imagen Arroz" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Arroz frito japonés con espárragos2.html">
+                        <h3>Arroz Frito Japonés con Espárragos</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            20 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Vegano
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Receta 4 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-12.webp" alt="Imagen Taco" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Taco vegetariano de coliflor y nueces.html">
+                        <h3>Taco Vegetariano de Coliflor y Nueces</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            40 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Vegano
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Receta 5 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-15.webp" alt="Imagen Arroz" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Arroz frito japonés con espárragos.html">
+                        <h3>Arroz Frito Japonés con Espárragos</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            25 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Vegano
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Recetas Culinarias. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>
