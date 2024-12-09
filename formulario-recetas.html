@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agregar Receta</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f9;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 600px;
+    }
+    h1 {
+      text-align: center;
+      color: #333;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    button {
+      background-color: #4CAF50;
+      color: white;
+      padding: 12px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      width: 100%;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+    .message {
+      text-align: center;
+      color: green;
+      font-weight: bold;
+    }
+    .error {
+      text-align: center;
+      color: red;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Agregar Receta</h1>
+    <form id="recipeForm">
+      <label for="recipeName">Nombre de la receta:</label>
+      <input type="text" id="recipeName" name="recipeName" required>
+
+      <label for="ingredients">Ingredientes:</label>
+      <textarea id="ingredients" name="ingredients" required></textarea>
+
+      <label for="procedure">Procedimiento:</label>
+      <textarea id="procedure" name="procedure" required></textarea>
+
+      <label for="image">Imagen de la receta:</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+
+      <label for="category">Categoría:</label>
+      <select id="category" name="category" required>
+        <option value="Desayuno">Desayuno</option>
+        <option value="Vegano">Vegano</option>
+        <option value="Carne">Carne</option>
+        <option value="Postre">Postre</option>
+        <option value="Chocolate">Chocolate</option>
+      </select>
+
+      <label for="prepTime">Tiempo de preparación:</label>
+      <input type="text" id="prepTime" name="prepTime" required>
+
+      <label for="videoLink">Enlace de video en YouTube (opcional):</label>
+      <input type="url" id="videoLink" name="videoLink">
+
+      <button type="submit">Enviar Receta</button>
+    </form>
+
+    <div id="message" class="message"></div>
+    <div id="errorMessage" class="error"></div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-app.js';
+    import { getDatabase, ref, set } from 'https://www.gstatic.com/firebasejs/9.6.1/firebase-database.js';
+
+    const firebaseConfig = {
+      apiKey: 'YOUR_API_KEY',
+      authDomain: 'YOUR_PROJECT_ID.firebaseapp.com',
+      databaseURL: 'https://YOUR_PROJECT_ID.firebaseio.com',
+      projectId: 'YOUR_PROJECT_ID',
+      storageBucket: 'YOUR_PROJECT_ID.appspot.com',
+      messagingSenderId: 'YOUR_SENDER_ID',
+      appId: 'YOUR_APP_ID'
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const form = document.getElementById('recipeForm');
+    const message = document.getElementById('message');
+    const errorMessage = document.getElementById('errorMessage');
+
+    form.addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const recipeName = document.getElementById('recipeName').value;
+      const ingredients = document.getElementById('ingredients').value;
+      const procedure = document.getElementById('procedure').value;
+      const category = document.getElementById('category').value;
+      const prepTime = document.getElementById('prepTime').value;
+      const videoLink = document.getElementById('videoLink').value;
+      const imageFile = document.getElementById('image').files[0];
+
+      if (!imageFile) {
+        errorMessage.textContent = 'Por favor, sube una imagen.';
+        return;
+      }
+
+      const imageLink = await uploadImage(imageFile);
+
+      if (!imageLink) {
+        errorMessage.textContent = 'Hubo un problema al subir la imagen.';
+        return;
+      }
+
+      const recipeData = {
+        recipeName,
+        ingredients,
+        procedure,
+        category,
+        prepTime,
+        videoLink,
+        image: imageLink
+      };
+
+      try {
+        await saveRecipe(recipeData);
+        message.textContent = 'Receta guardada con éxito.';
+        errorMessage.textContent = '';
+        form.reset();
+      } catch (error) {
+        errorMessage.textContent = 'Hubo un error al guardar la receta.';
+        message.textContent = '';
+      }
+    });
+
+    async function uploadImage(imageFile) {
+      const formData = new FormData();
+      formData.append('file', imageFile);
+
+      const response = await fetch('https://api.tinify.com/shrink', {
+        method: 'POST',
+        headers: {
+          'Authorization': 'Basic ' + btoa('api:' + 'YOUR_TINYPNG_API_KEY')
+        },
+        body: formData
+      });
+
+      const data = await response.json();
+
+      if (data.error) {
+        console.error('Error al subir la imagen:', data.error);
+        return null;
+      }
+
+      return data.output.url;
+    }
+
+    async function saveRecipe(recipeData) {
+      const newRecipeRef = ref(db, 'recipes/' + Date.now());
+      await set(newRecipeRef, recipeData);
+    }
+  </script>
+</body>
+</html>

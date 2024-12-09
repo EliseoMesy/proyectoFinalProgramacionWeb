@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros</title>
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.navigation-header {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.navigation-header a {
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  background-color: #444;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.navigation-header a:hover {
+  background-color: #4CAF50;
+}
+
+@media (max-width: 768px) {
+  .navigation-header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navigation-header a {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f9;
+      color: #333;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .navigation-header {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+    }
+
+    .navigation-header a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: bold;
+    }
+
+    #team {
+      text-align: center;
+      padding: 20px;
+    }
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    #team-members {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 0 10px;
+    }
+
+    .team-member {
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      padding: 15px;
+      text-align: center;
+    }
+
+    .team-member img {
+      width: 100%;
+      height: auto;
+      border-radius: 50%;
+      max-width: 150px;
+      margin-bottom: 10px;
+    }
+
+    .team-member p {
+      margin: 5px 0;
+    }
+
+    #about-us {
+      background-color: #e0e4eb;
+      padding: 30px;
+      margin: 20px auto;
+      border-radius: 8px;
+      max-width: 800px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    #about-us h3 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      color: #333;
+    }
+
+    #about-us p {
+      font-size: 1rem;
+      line-height: 1.6;
+      margin: 10px 0;
+      text-align: justify;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="logo"><a href="/" style="color: white; text-decoration: none;">Foodie-MAFIA</a></span>
+    <nav class="navigation-header">
+      <a href="index.html">Inicio</a>
+      <a href="formulario-recetas.html">Agregar Receta</a>
+      <a href="my-recipes.html">Recetas Guardadas</a>
+    </nav>
+  </header>
+
+  <section id="team">
+    <h2>Conoce a los creadores</h2>
+    <div id="team-members">
+      <div class="team-member">
+        <img src="img/marlon.jpg" alt="Marlon Alan">
+        <p><strong>Nombre:</strong> Marlon Alan Chávez Castillo</p>
+        <p><strong>Puesto:</strong> Diseñador UX/UI</p>
+        <p><strong>Teléfono:</strong> 555-123-4567</p>
+      </div>
+
+      <div class="team-member">
+        <img src="img/benedict.jpg" alt="Benedict Abraham">
+        <p><strong>Nombre:</strong> Benedict Abraham Espinosa García</p>
+        <p><strong>Puesto:</strong> Desarrollador Backend</p>
+        <p><strong>Teléfono:</strong> 555-234-5678</p>
+      </div>
+
+      <div class="team-member">
+        <img src="img/eliseo.jpg" alt="Eliseo Hernández">
+        <p><strong>Nombre:</strong> Eliseo Hernández Mesinas</p>
+        <p><strong>Puesto:</strong> Especialista en Firebase</p>
+        <p><strong>Teléfono:</strong> 555-345-6789</p>
+      </div>
+
+      <div class="team-member">
+        <img src="img/brayan.jpg" alt="Brayan Armando">
+        <p><strong>Nombre:</strong> Brayan Armando Chacón Aguilar</p>
+        <p><strong>Puesto:</strong> Desarrollador Frontend</p>
+        <p><strong>Teléfono:</strong> 555-456-7890</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="about-us">
+    <h3>Bienvenido a Foodie-MAFIA</h3>
+    <p>
+      En <strong>Foodie-MAFIA</strong>, nuestra misión es unir dos mundos que inspiran: el arte culinario y la tecnología de vanguardia. Sabemos que la cocina no es solo un lugar, sino un espacio donde las culturas se encuentran, los sabores cuentan historias, y la creatividad no tiene límites. Por eso, hemos creado una plataforma diseñada para facilitar y enriquecer tu experiencia culinaria.
+    </p>
+    <p>
+      Nuestra página te ofrece una base de datos de recetas categorizadas, personalización intuitiva y un diseño amigable, respaldado por tecnología avanzada como Firebase. Creemos que la innovación es clave para explorar y compartir los tesoros gastronómicos de todo el mundo.
+    </p>
+    <p>
+      Ya sea que seas un chef experimentado o alguien que apenas comienza a explorar su amor por la cocina, en <strong>Foodie-MAFIA</strong> encontrarás un hogar. Únete a nosotros, comparte tus recetas y descubre un mundo de posibilidades.
+    </p>
+    <p>
+      <em>"Cocinar es un arte; compartirlo es nuestra pasión."</em>
+    </p>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 Foodie-MAFIA. Todos los derechos reservados. 9 de diciembre de 2024.</p>
+  </footer>
+</body>
+</html>

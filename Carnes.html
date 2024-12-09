@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carnes - Categoría</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Estilo global */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+
+        /* Encabezado */
+        header {
+            background-color: #000; /* Fondo negro */
+            color: white; /* Texto blanco */
+            padding: 20px;
+            text-align: center;
+            margin: 0;
+            width: 100%; /* Abarca todo el ancho */
+        }
+
+        /* Barra de navegación */
+        .navigation-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #444; /* Fondo gris oscuro */
+            padding: 10px 0;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .navigation-header a {
+            text-decoration: none;
+            color: white;
+            margin: 0 20px;
+            padding: 10px 20px;
+            font-weight: bold;
+            border-radius: 4px;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+
+        footer {
+    text-align: center;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+    </style>
+</head>
+<body>
+    <!-- Encabezado -->
+    <header>
+        <h1>Carnes</h1>
+        <p>Descubre recetas deliciosas y fáciles de preparar para tus platillos con carnes.</p>
+    </header>
+
+    <!-- Barra de navegación -->
+    <nav class="navigation-header">
+        <a href="index.html">Inicio</a>
+        <a href="my-recipes.html">Recetas Guardadas</a>
+        <a href="Nosotros.html">Nosotros</a>
+    </nav>
+
+    <!-- Sección de recetas -->
+    <main>
+        <h2>Recetas Con Carnes</h2>
+        <div class="list-card-recipes">
+            <!-- Receta 1 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-2.webp" alt="Imagen Salmón" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Salmón asado con lima fresca y salsa de jengibre.html">
+                        <h3>Salmón asado con lima fresca y salsa de jengibre</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            30 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receta 2 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-3.webp" alt="Imagen Hamburguesa" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Gran Hamburguesa de carne de res Wagyu.html">
+                        <h3>Gran Hamburguesa de carne de res Wagyu</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            20-25 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receta 3 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-5.webp" alt="Imagen Albóndigas" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Albóndigas de pollo con queso crema.html">
+                        <h3>Albóndigas de pollo con queso crema</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            30 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+           <!-- Receta 4 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-6.webp" alt="Imagen Pasta" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Pasta cremosa de pollo y tocino.html">
+                        <h3>Pasta cremosa de pollo y tocino</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            35 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>
+        
+            <!-- Receta 5 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-8.webp" alt="Imagen Arroz pollo" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Arroz con pollo y verduras en una sola olla.html">
+                        <h3>Arroz con pollo y verduras en una sola olla</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            30 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>    
+
+            <!-- Receta 6 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-10.webp" alt="Imagen Filete" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Filete de carne de Wagyu con papas fritas.html">
+                        <h3>Filete de Carne de Wagyu con Papas Fritas</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            25 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receta 7 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-13.webp" alt="Imagen Ensalada pollo" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Ensalada de pollo arcoíris con almendras y miel.html">
+                        <h3>Ensalada de Pollo Arcoíris con Almendras y Miel</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            20 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receta 8 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-14.webp" alt="Imagen Sandwich" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Sandwich picante de barbacoa con papas fritas.html">
+                        <h3>Sándwich Picante de Barbacoa con Papas Fritas</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            30 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Receta 9 -->
+            <div class="card-recipe">
+                <div class="container-img">
+                    <img src="img/img-recipe-16.webp" alt="Imagen Sopa" />
+                    <button class="btn-favorite">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="content">
+                    <a href="Sopa de Ramen de Pollo con Champiñones.html">
+                        <h3>Sopa de Ramen de Pollo con Champiñones</h3>
+                    </a>
+                    <div class="footer">
+                        <span class="time">
+                            <i class="fa-solid fa-clock"></i>
+                            30 minutos
+                        </span>
+                        <span class="category">
+                            <i class="fa-solid fa-utensils"></i>
+                            Carnes
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Recetas Culinarias. Todos los derechos reservados.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Opciones de Suscripción</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+            background-color: #f9f9f9;
+        }
+
+        h1 {
+            margin: 20px;
+            color: #333;
+        }
+
+        .subscription-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px;
+        }
+
+        .subscription-option {
+            background-color: white;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .subscription-option:hover {
+            transform: scale(1.05);
+            box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .price {
+            font-size: 24px;
+            color: #ff6f61;
+            margin: 10px 0;
+        }
+
+        button {
+            background-color: #ff6f61;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #e55c4d;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <span class="logo"><a href="index.html">Foodie-Mafia</a></span>
+        <nav class="navigation-header">
+        <a href="index.html">Inicio</a>
+          <a href="my-recipes.html">Mis Recetas</a>
+          <a href="formulario-recetas.html">Agregar Recetas</a>
+        </nav>
+      </header>
+    <h1>Elige tu Plan de Suscripción</h1>
+    <div class="subscription-container">
+        <!-- Opción Semanal -->
+        <div class="subscription-option">
+            <h1>Semanal</h1>
+            <p class="price">$30</p>
+            <h3>
+
+               * libre de anuncios
+            </h3>
+            <button onclick="window.location.href='pago.html?plan=semanal'">Suscribirse</button>
+        </div>
+
+        <!-- Opción Mensual -->
+        <div class="subscription-option">
+            <h1>Mensual</h1>
+            <p class="price">$100</p>
+            <h3>
+
+                * libre de anuncios
+             </h3>
+             <button onclick="window.location.href='pago.html?plan=semanal'">Suscribirse</button>
+        </div>
+
+        <!-- Opción Anual -->
+        <div class="subscription-option">
+            <h1>Anual</h1>
+            <p class="price">$900</p>
+            <h3>
+
+                * libre de anuncios
+             </h3>
+             <button onclick="window.location.href='pago.html?plan=semanal'">Suscribirse</button>
+        </div>
+    </div>
+</body>
+</html>
