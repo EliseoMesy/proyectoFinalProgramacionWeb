@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nosotros</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <span class="logo"><a href="/">Foodie-MAFIA</a></span>
+    <nav class="navigation-header">
+    <a href="/">Inicio</a>
+      <a href="/">Nosotros</a>
+    </nav>
+    <p></p>
+  </header>
+
+  <!-- Sección del equipo -->
+  <section id="team">
+    <h2>Conoce a los creadores</h2>
+    <div id="team-members">
+      <!-- Miembro 1: Marlon -->
+      <div class="team-member" id="member-1">
+        <img src="default.jpg" alt="Foto de Marlon" class="team-img" id="img-1">
+        <p id="name-1">Marlon Alan Chavez Castillo</p>
+        <input type="file" id="upload-1" onchange="updateImage(1)" style="display:none;">
+        <button onclick="changePhoto(1)">Cambiar Foto</button>
+      </div>
+
+      <!-- Miembro 2: Benedict -->
+      <div class="team-member" id="member-2">
+        <img src="default.jpg" alt="Foto de Benedict" class="team-img" id="img-2">
+        <p id="name-2">Benedict Abraham Espinosa Garcia</p>
+        <input type="file" id="upload-2" onchange="updateImage(2)" style="display:none;">
+        <button onclick="changePhoto(2)">Cambiar Foto</button>
+      </div>
+
+      <!-- Miembro 3: Eliseo -->
+      <div class="team-member" id="member-3">
+        <img src="default.jpg" alt="Foto de Eliseo" class="team-img" id="img-3">
+        <p id="name-3">Eliseo Hernández Mesinas</p>
+        <input type="file" id="upload-3" onchange="updateImage(3)" style="display:none;">
+        <button onclick="changePhoto(3)">Cambiar Foto</button>
+      </div>
+
+      <!-- Miembro 4: Brayan -->
+      <div class="team-member" id="member-4">
+        <img src="default.jpg" alt="Foto de Brayan" class="team-img" id="img-4">
+        <p id="name-4">Brayan Armando Chacon Aguilar</p>
+        <input type="file" id="upload-4" onchange="updateImage(4)" style="display:none;">
+        <button onclick="changePhoto(4)">Cambiar Foto</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="Nosotros.js" defer></script>
+</body>
+</html>
